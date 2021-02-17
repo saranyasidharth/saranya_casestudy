@@ -6,7 +6,7 @@ function check(){
         if(user.value=="admin" && pwd.value=="12345")
         {
             callback(user,pwd,false)
-            document.location.href = "./page/todo.html";
+            document.location.href = "./todo.html";
             return false;
         }
         else {
