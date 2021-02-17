@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html >
+<head>
+  <title>To-Do List</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script>
+    $.getJSON('https://jsonplaceholder.typicode.com/todos', function(list) {
+         for(var i=0;i<=200;i++){
+             if(list[i].completed==false){
+                 var text = `<li><input type="checkbox"  onclick="generate() " class="cbox"/>
+               ${list[i].title}</li>`
+                 $("#table").append(text);}
+             else{
+                 var text = `<li><input type="checkbox" disabled checked "/> ${list[i].title}</li>`
+                 $("#table").append(text);
+                 
+             }
+         }
+     });
+     </script>
+<style>
+    body{
+      background-color: rgba(0, 0, 0, 0.8);
+      color: blanchedalmond;
+    }
+  
+    li{
+         
+         border-bottom: 2px solid rgb(143, 159, 214);
+         margin-bottom: 1cm ;
+
+    }.head-tag 
+        { 
+             margin-left: 65pc;
+        }   
+       .head-tag a 
+        {     
+            text-decoration: rgb(201, 121, 121);
+            color: rgb(224, 220, 220);
+            margin-right: 2pc;
+            cursor: pointer;
+            padding: 8px;
+            opacity: .7; 
+        }
+        .head-tag a:hover
+        {
+          
+            color:white;
+            transition: .5s ease-in-out;
+            opacity:  1;
+        }#table
+        {
+          list-style-type: none;
+        }
+        h1{
+          text-align: center;
+          color: white;
+        }
+          </style>
+    <header>
+          <div class="head-tag Top" style="padding: .6cm;position:fixed;" >
+                <font size="5px">
+                  <a href="#Top">Home</a>
+                  <a href="./index.html">Log out</a>
+                </font>
+          </div> 
+    </header>
+  </head> 
+<div id="container demo text-center">
+<br>
+  <h1> To-Do list</h1>
+  <br><br>
+ <br>
+</div>
+<div>
+  <ul id="table">
+</div><br><br>
+   
+
+<script src="script.js"></script>
+
+<script type="text/javascript">
+ 
+    unmarkedBoxCount.disabled = true;
+    function generate() {
+    var grid = document.getElementById("table");
+    var check = grid.getElementsByTagName("INPUT");
+    var checked =  0;
+    var f=0;
+    let myPromise = new Promise(function(myResolve, myReject)
+     {
+   label: for (var i = 0; i < check.length; i++) 
+   {
+        if (check[i].checked) 
+        {
+            checked++;
+            if (checked == 95 && f==0) {
+
+                myResolve();
+                alert("Congrats. 5 Tasks have been Successfully Completed.");
+                $(".cbox").attr('disabled',true);
+                break label;
+            }else {
+                myReject();
+            }
+        }   }
+}); 
+  } 
+  </script>
+  
+    
+</body>
+</html>
